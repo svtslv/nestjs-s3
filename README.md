@@ -1,7 +1,6 @@
 # NestJS S3
 
 <a href="https://www.npmjs.com/package/nestjs-s3"><img src="https://img.shields.io/npm/v/nestjs-s3.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/package/nestjs-s3"><img src="https://img.shields.io/npm/dm/nestjs-s3.svg" alt="NPM Downloads" /></a>
 <a href="https://www.npmjs.com/package/nestjs-s3"><img src="https://img.shields.io/npm/l/nestjs-s3.svg" alt="Package License" /></a>
 
 ## Table of Contents
@@ -17,7 +16,7 @@ Integrates S3 with Nest
 ## Installation
 
 ```bash
-npm install nestjs-objection aws-sdk
+npm install nestjs-s3 aws-sdk
 ```
 
 ## Examples

@@ -1,6 +1,6 @@
 {
   "name": "nestjs-s3",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Nest - modern, fast, powerful node.js web framework (@s3)",
   "author": "Sviatoslav H",
   "license": "MIT",
