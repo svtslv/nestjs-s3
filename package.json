@@ -1,6 +1,6 @@
 {
   "name": "nestjs-s3",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Nest - modern, fast, powerful node.js web framework (@s3)",
   "author": "Sviatoslav H",
   "license": "MIT",
@@ -21,8 +21,7 @@
   "peerDependencies": {
     "@nestjs/common": ">=6.7.0",
     "@nestjs/core": ">=6.7.0",
-    "knex": ">=0.16.5",
-    "objection": ">=2.1.0"
+    "aws-sdk": ">=2.0.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^6.13.2",
