@@ -1,6 +1,6 @@
 import { Inject } from '@nestjs/common';
-import { S3_MODULE_TOKEN } from './s3.constants'
+import { getS3ConnectionToken } from './s3.utils';
 
-export const InjectS3 = () => {
-  return Inject(S3_MODULE_TOKEN);
+export const InjectS3 = (connection?) => {
+  return Inject(getS3ConnectionToken(connection));
 };

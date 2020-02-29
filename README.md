@@ -41,7 +41,7 @@ import { AppController } from './app.controller';
         accessKeyId: 'minio',
         secretAccessKey: 'password',
         endpoint: 'http://127.0.0.1:9000',
-        s3ForcePathStyle: false,
+        s3ForcePathStyle: true,
         signatureVersion: 'v4'
       }
     }),

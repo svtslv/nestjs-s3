@@ -1,2 +1,3 @@
-export const S3_MODULE_OPTIONS = 'S3ModuleOptions';
-export const S3_MODULE_TOKEN = 'S3ModuleToken';
+export const S3_MODULE_CONNECTION = 'default';
+export const S3_MODULE_CONNECTION_TOKEN = 'S3ModuleConnectionToken';
+export const S3_MODULE_OPTIONS_TOKEN = 'S3ModuleOptionsToken';
