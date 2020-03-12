@@ -29,6 +29,8 @@ docker run \
 minio/minio server /data
 ```
 
+### S3Module.forRoot(options, connection?)
+
 ```ts
 import { Module } from '@nestjs/common';
 import { S3Module } from 'nestjs-s3';
@@ -42,14 +44,38 @@ import { AppController } from './app.controller';
         secretAccessKey: 'password',
         endpoint: 'http://127.0.0.1:9000',
         s3ForcePathStyle: true,
-        signatureVersion: 'v4'
-      }
+        signatureVersion: 'v4',
+      },
     }),
   ],
   controllers: [AppController],
 })
 export class AppModule {}
 ```
+
+### S3Module.forRootAsync(options, connection?)
+
+```ts
+@Module({
+  imports: [
+    S3Module.forRootAsync({
+      useFactory: () => ({
+        config: {
+          accessKeyId: 'minio',
+          secretAccessKey: 'password',
+          endpoint: 'http://localhost:9000',
+          s3ForcePathStyle: true,
+          signatureVersion: 'v4',
+        },
+      }),
+    }),
+  ],
+  controllers: [AppController],
+})
+export class AppModule {}
+```
+
+### InjectS3(connection?)
 
 ```ts
 import { Controller, Get, } from '@nestjs/common';
@@ -63,12 +89,10 @@ export class AppController {
 
   @Get()
   async getHello() {
-    const Bucket = 'bucket';
     try {
-      await this.s3.createBucket({ Bucket }).promise();
-    } catch (e) {
-      // console.log(e);
-    }
+      await this.s3.createBucket({ Bucket: 'bucket' }).promise();
+    } catch (e) {}
+
     try {
       const list = await this.s3.listBuckets().promise();
       return list.Buckets;

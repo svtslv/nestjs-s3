@@ -1,38 +1,22 @@
-import { Module, DynamicModule, Provider } from "@nestjs/common";
-import { S3ModuleOptions, S3ModuleAsyncOptions } from './s3.interfaces';
-import { createS3Connection, getS3ConnectionToken, getS3OptionsToken } from './s3.utils'
+import { DynamicModule, Module } from '@nestjs/common';
+import { S3CoreModule } from './s3.core-module';
+import { S3ModuleAsyncOptions, S3ModuleOptions } from './s3.interfaces';
 
 @Module({})
 export class S3Module {
-  static forRoot(options: S3ModuleOptions, connection?: string): DynamicModule {
-
-    const S3OptionsProvider: Provider = {
-      provide: getS3OptionsToken(connection),
-      useValue: options,
-    };
-
-    const S3ConnectionProvider: Provider = {
-      provide: getS3ConnectionToken(connection),
-      useValue: createS3Connection(options),
-    };
-
+  public static forRoot(options: S3ModuleOptions, connection?: string): DynamicModule {
     return {
       module: S3Module,
-      providers: [
-        S3OptionsProvider,
-        S3ConnectionProvider,
-      ],
-      exports: [
-        S3OptionsProvider,
-        S3ConnectionProvider,
-      ],
+      imports: [S3CoreModule.forRoot(options, connection)],
+      exports: [S3CoreModule],
     };
   }
 
-  static forRootAsync(options: S3ModuleAsyncOptions, connection?: string): DynamicModule {
+  public static forRootAsync(options: S3ModuleAsyncOptions, connection?: string): DynamicModule {
     return {
       module: S3Module,
-      imports: [S3Module.forRootAsync(options, connection)],
+      imports: [S3CoreModule.forRootAsync(options, connection)],
+      exports: [S3CoreModule],
     };
   }
 }
