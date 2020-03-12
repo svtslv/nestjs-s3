@@ -56,6 +56,10 @@ export class AppModule {}
 ### S3Module.forRootAsync(options, connection?)
 
 ```ts
+import { Module } from '@nestjs/common';
+import { S3Module } from 'nestjs-s3';
+import { AppController } from './app.controller';
+
 @Module({
   imports: [
     S3Module.forRootAsync({
