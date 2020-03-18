@@ -19,6 +19,12 @@ Integrates S3 with Nest
 npm install nestjs-s3 aws-sdk
 ```
 
+You can also use the interactive CLI
+
+```sh
+npx nestjs-modules
+```
+
 ## Examples
 
 ```bash
