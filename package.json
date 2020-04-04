@@ -1,6 +1,6 @@
 {
   "name": "nestjs-s3",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Nest - modern, fast, powerful node.js web framework (@s3)",
   "author": "Sviatoslav H",
   "license": "MIT",
@@ -16,7 +16,9 @@
     "storage"
   ],
   "files": [
-    "dist"
+    "dist",
+    "index.js",
+    "index.d.ts"
   ],
   "main": "dist/index.js",
   "scripts": {
