@@ -54,7 +54,7 @@
     "eslint-plugin-import": "^2.20.1",
     "jest": "^26.1.0",
     "minio": "^7.0.15",
-    "prettier": "^1.19.1",
+    "prettier": "^2.7.1",
     "reflect-metadata": "^0.1.13",
     "supertest": "^4.0.2",
     "ts-jest": "^26.1.3",
