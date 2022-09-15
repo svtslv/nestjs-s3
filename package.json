@@ -1,12 +1,12 @@
 {
   "name": "nestjs-s3",
-  "version": "1.0.2",
-  "description": "Nest - modern, fast, powerful node.js web framework (@s3)",
-  "author": "Sviatoslav H",
+  "version": "1.0.3",
+  "description": "A Library For NestJs to Manage AWS S3 Storage.",
+  "author": "Shakil Hossain",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/svtslv/nestjs-s3"
+    "url": "https://github.com/shakil-aibees/nestjs-s3"
   },
   "keywords": [
     "nest",
