@@ -46,7 +46,7 @@ export class S3CoreModule {
     return {
       module: S3CoreModule,
       imports: options.imports,
-      providers: [...this.createAsyncProviders(options, connection), s3ConnectionProvider],
+      providers: [...S3CoreModule.createAsyncProviders(options, connection), s3ConnectionProvider],
       exports: [s3ConnectionProvider],
     };
   }
@@ -54,18 +54,18 @@ export class S3CoreModule {
   /* createAsyncProviders */
   public static createAsyncProviders(options: S3ModuleAsyncOptions, connection?: string): Provider[] {
 
-    if(!(options.useExisting || options.useFactory || options.useClass)) {
+    if (!(options.useExisting || options.useFactory || options.useClass)) {
       throw new Error('Invalid configuration. Must provide useFactory, useClass or useExisting');
     }
 
     if (options.useExisting || options.useFactory) {
       return [
-        this.createAsyncOptionsProvider(options, connection)
+        S3CoreModule.createAsyncOptionsProvider(options, connection)
       ];
     }
 
-    return [ 
-      this.createAsyncOptionsProvider(options, connection), 
+    return [
+      S3CoreModule.createAsyncOptionsProvider(options, connection),
       { provide: options.useClass, useClass: options.useClass },
     ];
   }
@@ -73,7 +73,7 @@ export class S3CoreModule {
   /* createAsyncOptionsProvider */
   public static createAsyncOptionsProvider(options: S3ModuleAsyncOptions, connection?: string): Provider {
 
-    if(!(options.useExisting || options.useFactory || options.useClass)) {
+    if (!(options.useExisting || options.useFactory || options.useClass)) {
       throw new Error('Invalid configuration. Must provide useFactory, useClass or useExisting');
     }
 
