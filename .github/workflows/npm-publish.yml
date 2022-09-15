@@ -19,6 +19,7 @@ jobs:
           echo @ai-bees:https://npm.pkg.github.com/ > build/.npmrc
           echo '//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}' >> build/.npmrc
       - run: npm publish
-        working-directory: ./build
+
+  working-directory: ./build
         env:
           NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
