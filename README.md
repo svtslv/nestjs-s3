@@ -1,7 +1,9 @@
-# NestJS S3
+# NestJS S3 (Updated)
 
-<a href="https://www.npmjs.com/package/nestjs-s3"><img src="https://img.shields.io/npm/v/nestjs-s3.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/package/nestjs-s3"><img src="https://img.shields.io/npm/l/nestjs-s3.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/package/aibees-nestjs-s3
+"><img src="https://img.shields.io/npm/v/aibees-nestjs-s3.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/package/aibees-nestjs-s3
+"><img src="https://img.shields.io/npm/l/aibees-nestjs-s3.svg" alt="Package License" /></a>
 
 ## Table of Contents
 
@@ -11,18 +13,12 @@
 - [License](#license)
 
 ## Description
-Integrates S3 with Nest
+A library for NestJS to manage AWS S3 Buckets.
 
 ## Installation
 
 ```bash
-npm install nestjs-s3 aws-sdk
-```
-
-You can also use the interactive CLI
-
-```sh
-npx nestjs-modules
+npm i aibees-nestjs-s3
 ```
 
 ## Examples
@@ -39,7 +35,7 @@ minio/minio server /data
 
 ```ts
 import { Module } from '@nestjs/common';
-import { S3Module } from 'nestjs-s3';
+import { S3Module } from 'aibees-nestjs-s3';
 import { AppController } from './app.controller';
 
 @Module({
@@ -89,7 +85,7 @@ export class AppModule {}
 
 ```ts
 import { Controller, Get, } from '@nestjs/common';
-import { InjectS3, S3 } from 'nestjs-s3';
+import { InjectS3, S3 } from 'aibees-nestjs-s3';
 
 @Controller()
 export class AppController {
@@ -112,6 +108,12 @@ export class AppController {
   }
 }
 ```
+
+## Credits
+This project was forked from <a href="https://github.com/svtslv/nestjs-s3
+>here</a>. Original credits goes to <a href="https://github.com/svtslv
+">@svtslv</a>.
+
 
 ## License
 
