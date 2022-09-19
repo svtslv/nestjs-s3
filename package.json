@@ -52,7 +52,6 @@
     "eslint": "^8.0.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.26.0",
-    "husky": "^8.0.1",
     "jest": "^26.6.3",
     "minio": "^7.0.32",
     "prettier": "^2.7.1",
