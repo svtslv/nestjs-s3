@@ -1,5 +1,5 @@
 {
-  "name": "@aibees/nestjs-s3",
+  "name": "aibees-nestjs-s3",
   "version": "1.0.3",
   "description": "A Library For NestJs to Manage AWS S3 Storage.",
   "author": "Shakil Hossain",
