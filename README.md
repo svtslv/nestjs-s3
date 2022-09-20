@@ -108,9 +108,8 @@ export class AppController {
 ```
 
 ## Credits
-This project was forked from <a href="https://github.com/svtslv/nestjs-s3
->here</a>. Original credits goes to <a href="https://github.com/svtslv
-">@svtslv</a>.
+This project was forked from <a href="https://github.com/svtslv/nestjs-s3">here</a>.
+Original credits goes to <a href="https://github.com/svtslv">@svtslv</a>.
 
 
 ## License
