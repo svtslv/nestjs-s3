@@ -1,6 +1,6 @@
 {
   "name": "aibees-nestjs-s3",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A Library For NestJs to Manage AWS S3 Storage.",
   "author": "Shakil Hossain",
   "license": "MIT",
