@@ -1,9 +1,7 @@
 # NestJS S3 (Updated)
 
-<a href="https://www.npmjs.com/package/aibees-nestjs-s3
-"><img src="https://img.shields.io/npm/v/aibees-nestjs-s3.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/package/aibees-nestjs-s3
-"><img src="https://img.shields.io/npm/l/aibees-nestjs-s3.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/package/aibees-nestjs-s3"><img src="https://img.shields.io/npm/v/aibees-nestjs-s3.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/package/aibees-nestjs-s3"><img src="https://img.shields.io/npm/l/aibees-nestjs-s3.svg" alt="Package License" /></a>
 
 ## Table of Contents
 
@@ -59,7 +57,7 @@ export class AppModule {}
 
 ```ts
 import { Module } from '@nestjs/common';
-import { S3Module } from 'nestjs-s3';
+import { S3Module } from 'aibees-nestjs-s3';
 import { AppController } from './app.controller';
 
 @Module({
