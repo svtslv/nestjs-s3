@@ -16,7 +16,7 @@ A library for NestJS to manage AWS S3 Buckets.
 ## Installation
 
 ```bash
-npm i aibees-nestjs-s3
+npm i -s aibees-nestjs-s3 aws-sdk
 ```
 
 ## Examples
