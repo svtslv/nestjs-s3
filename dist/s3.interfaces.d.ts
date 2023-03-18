@@ -1,8 +1,7 @@
-import { ModuleMetadata, Type } from "@nestjs/common/interfaces";
-import * as AWS from 'aws-sdk';
-export type S3 = AWS.S3;
+import { ModuleMetadata, Type } from '@nestjs/common/interfaces';
+import { S3ClientConfig } from '@aws-sdk/client-s3';
 export interface S3ModuleOptions {
-    config: AWS.S3.ClientConfiguration;
+    config: S3ClientConfig;
 }
 export interface S3ModuleOptionsFactory {
     createS3ModuleOptions(): Promise<S3ModuleOptions> | S3ModuleOptions;
