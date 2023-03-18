@@ -16,7 +16,7 @@ Integrates S3 with Nest
 ## Installation
 
 ```bash
-npm install nestjs-s3 aws-sdk
+npm install nestjs-s3 @aws-sdk/client-s3
 ```
 
 You can also use the interactive CLI
@@ -123,8 +123,8 @@ services:
     image: minio/minio:latest
     command: server --console-address :9001 /data
     environment:
-      - MINIO_ROOT_USER=AKIAIOSFODNN7EXAMPLE
-      - MINIO_ROOT_PASSWORD=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+      - MINIO_ROOT_USER=minio
+      - MINIO_ROOT_PASSWORD=password
     volumes:
       - .minio:/data
     ports:
