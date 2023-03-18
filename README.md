@@ -113,6 +113,29 @@ export class AppController {
 }
 ```
 
+### Docker Compose
+```yml
+version: '3.8'
+
+services:
+  minio:
+    container_name: ${COMPOSE_PROJECT_NAME}_minio
+    image: minio/minio:latest
+    command: server --console-address :9001 /data
+    environment:
+      - MINIO_ROOT_USER=AKIAIOSFODNN7EXAMPLE
+      - MINIO_ROOT_PASSWORD=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+    volumes:
+      - .minio:/data
+    ports:
+      - 9000:9000
+      - 9001:9001
+```
+
+```
+docker-compose up -d
+```
+
 ## License
 
 MIT
