@@ -16,7 +16,7 @@ Integrates S3 with Nest
 ## Installation
 
 ```bash
-npm install nestjs-s3 aws-sdk
+npm install nestjs-s3 @aws-sdk/client-s3
 ```
 
 You can also use the interactive CLI
@@ -46,8 +46,10 @@ import { AppController } from './app.controller';
   imports: [
     S3Module.forRoot({
       config: {
-        accessKeyId: 'minio',
-        secretAccessKey: 'password',
+        credentials: {
+          accessKeyId: 'minio',
+          secretAccessKey: 'password',
+        },
         endpoint: 'http://127.0.0.1:9000',
         s3ForcePathStyle: true,
         signatureVersion: 'v4',
@@ -71,8 +73,10 @@ import { AppController } from './app.controller';
     S3Module.forRootAsync({
       useFactory: () => ({
         config: {
-          accessKeyId: 'minio',
-          secretAccessKey: 'password',
+          credentials: {
+            accessKeyId: 'minio',
+            secretAccessKey: 'password',
+          },
           endpoint: 'http://localhost:9000',
           s3ForcePathStyle: true,
           signatureVersion: 'v4',
@@ -100,11 +104,11 @@ export class AppController {
   @Get()
   async getHello() {
     try {
-      await this.s3.createBucket({ Bucket: 'bucket' }).promise();
+      await this.s3.createBucket({ Bucket: 'bucket' });
     } catch (e) {}
 
     try {
-      const list = await this.s3.listBuckets().promise();
+      const list = await this.s3.listBuckets({});
       return list.Buckets;
     } catch (e) {
       console.log(e);
