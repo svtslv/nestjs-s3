@@ -50,8 +50,9 @@ import { AppController } from './app.controller';
           accessKeyId: 'minio',
           secretAccessKey: 'password',
         },
+        // region: 'us-east-1',
         endpoint: 'http://127.0.0.1:9000',
-        s3ForcePathStyle: true,
+        forcePathStyle: true,
         signatureVersion: 'v4',
       },
     }),
@@ -77,8 +78,9 @@ import { AppController } from './app.controller';
             accessKeyId: 'minio',
             secretAccessKey: 'password',
           },
+          // region: 'us-east-1',
           endpoint: 'http://localhost:9000',
-          s3ForcePathStyle: true,
+          forcePathStyle: true,
           signatureVersion: 'v4',
         },
       }),
@@ -102,12 +104,13 @@ export class AppController {
   ) {}
 
   @Get()
-  async getHello() {
+  async listBuckets() {
     try {
       await this.s3.createBucket({ Bucket: 'bucket' });
     } catch (e) {}
 
     try {
+      // this.s3.send(new ListBucketsCommand({}))
       const list = await this.s3.listBuckets({});
       return list.Buckets;
     } catch (e) {
