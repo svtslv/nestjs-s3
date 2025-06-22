@@ -1,0 +1,38 @@
+name: 'Validate Version'
+description: 'Validates a git tag against the version in package.json and checks its format.'
+
+inputs:
+  tag:
+    description: 'The git tag to validate (e.g., from github.ref_name)'
+    required: true
+
+outputs:
+  clean-version:
+    description: "The clean, validated version number (e.g., 1.2.3)"
+    value: ${{ steps.validator.outputs.version }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Validate and extract version
+      id: validator
+      shell: bash
+      run: |
+        GIT_TAG="${{ inputs.tag }}"
+        echo "Validating tag: $GIT_TAG"
+
+        CLEAN_VERSION=$(echo "$GIT_TAG" | sed -e 's/^v//' -e 's/\-.*//')
+
+        if ! echo "$CLEAN_VERSION" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+          echo "::error::Tag version '$CLEAN_VERSION' from tag '$GIT_TAG' does not match semantic versioning format (X.Y.Z)."
+          exit 1
+        fi
+        echo "Tag version format is valid: $CLEAN_VERSION"
+
+        PKG_VERSION=$(node -p "require('./package.json').version")
+        if [ "$CLEAN_VERSION" != "$PKG_VERSION" ]; then
+          echo "::error::Tag version ($CLEAN_VERSION) does not match package.json version ($PKG_VERSION)."
+          exit 1
+        fi
+        echo "Tag version matches package.json version."
+        echo "version=$CLEAN_VERSION" >> $GITHUB_OUTPUT
